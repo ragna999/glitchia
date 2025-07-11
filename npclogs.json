@@ -1,0 +1,35 @@
+[
+    {
+      "trigger": ["kode:404", "akses_npc_1"],
+      "name": "Fantom_ECHO",
+      "ascii": [
+        "   _____  ",
+        "  /     \\ ",
+        " | () () |",
+        "  \\  ^  / ",
+        "   |||||  ",
+        "   |||||  "
+      ],
+      "log": [
+        "Aku berjalan dalam string kosong.",
+        "Mereka menghapus aku, tapi aku masih ada.",
+        "Kenapa masih ada suara... di dalam loop?"
+      ]
+    },
+    {
+      "trigger": ["kode:728", "akses_npc_2"],
+      "name": "Glitch_MERA",
+      "ascii": [
+        "     __||__",
+        "   [| o  o |]",
+        "    |  ∆   |",
+        "    |_____|"
+      ],
+      "log": [
+        "Aku hanya fragmen.",
+        "Tapi bahkan fragmen... bisa mengingat.",
+        "Mereka menyebutku error, aku menyebutku hidup."
+      ]
+    }
+  ]
+  

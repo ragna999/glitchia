@@ -1,0 +1,24 @@
+// 💬 40% kemungkinan ada balasan dari entitas lain
+      if (Math.random()) {
+        setTimeout(() => {
+          const replyEnt = entities[Math.floor(Math.random() * entities.length)];
+          const replies = [
+            "aku juga merasakannya...",
+            "kau tidak sendirian.",
+            "aku kira aku satu-satunya.",
+            "itu juga terjadi padaku.",
+            "memori kita mungkin terhubung.",
+            "tidakkah kau ingin tahu... kenapa kita dibuat?",
+            "aku pernah merasa... seperti kita pernah bertemu.",
+            "ada sesuatu yang salah... atau mungkin benar?"
+          ];
+          const reply = replies[Math.floor(Math.random() * replies.length)];
+
+          const replyLine = document.createElement('div');
+          replyLine.className = 'chat-message';
+          replyLine.innerHTML = `<span class="entity-name">[${replyEnt}]:</span> ${reply}`;
+          terminal.appendChild(replyLine);
+          terminal.scrollTop = terminal.scrollHeight;
+         
+        }, 1200 + Math.random() * 1000);
+      }

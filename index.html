@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glitchia</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <link href="style.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" 
+  rel="stylesheet">
+
+</head>
+<body>
+
+        <div class="sidebar">
+          <!-- max 4 per baris -->
+          <div class="menu-icon" onclick="createWindow('Glitchia', event)">
+            <img src="assets/mint.png" alt="Glitchia">
+            <span>Glitchia</span>
+          </div>
+          <div class="menu-icon" onclick="createWindow('Gallery', event)">
+            <img src="assets/glity.png" alt="Pharos">
+            <span>Gallery</span>
+          </div>
+          <div class="menu-icon" onclick="createWindow('Public Chat', event)">
+            <img src="assets/glity2.png" alt="Public Chat">
+            <span>Public Chat</span>
+          </div>
+          <div class="menu-icon" onclick="createWindow('EntitasChat', event)">
+            <img src="assets/glity3.png" alt="EntitasChat">
+            <span>entities</span>
+          </div>
+          <div class="menu-icon" onclick="createWindow('artifact', event)">
+            <img src="assets/glity4.png" alt="artifact">
+            <span>artifact</span>
+          </div>
+          <!-- tambah menu lagi? langsung pindah ke baris bawah -->
+        </div>
+      
+  
+        
+        <div class="main-title-wrapper">
+            <div class="main-title">Glitchia</div>
+          </div>
+          
+
+
+          <!--TASK BAR/FOOTER-->
+
+    <div class="taskbar">
+      <div class="left">
+        <button class="btn">Glitchia</button>
+        <button class="btn">Connect Wallet</button>
+      </div>
+      <div class="right">
+        <select class="btn">
+          <option>English</option>
+        </select>
+        <span class="btn">🟢 12216873</span>
+      </div>
+    </div>
+  
+
+
+    <script>
+      let z = 100;
+
+    
+    
+  //MENU SIDEBAR//
+
+      function createWindow(title, event) {
+
+  const iconRect = event.currentTarget.getBoundingClientRect();
+  const win = document.createElement('div');
+  win.className = 'popup-window spawn-animation';
+  win.style.left = `${iconRect.left}px`;
+  win.style.top = `${iconRect.top}px`;
+  win.style.zIndex = ++z;
+  if (title ==='Glitchia') {
+  win.classList.add('popup-lore');
+}
+
+  let content = '';
+
+  switch (title) {
+
+    //SIDE BAR1//
+
+    case 'Glitchia':
+  const glityImages = ['gal1.png', 'gal2.png', 'gal3.png', 'gal4.png'];
+  const randomGlity = glityImages[Math.floor(Math.random() * glityImages.length)];
+  content = `
+  <img
+    src="assets/${randomGlity}"
+    style="width: 100%; display: block; image-rendering: pixelated; vertical-align: top;" />
+    <h1 style="font-size: 12px; font-weight: bold; margin-bottom: 12px;">
+      Glitchia
+    </h1>
+    <div style="font-size: 10px; color: black; line-height: 1.5; white-space: pre-wrap;">
+Behind the endless noise of systems and the flow of digital routines, there exists a place that was never meant to be seen—Glitchia. A world formed from programs that were never executed, interfaces that never rendered, and algorithms left in limbo. Created, then forgotten. Not deleted, just left behind—silent, decaying, and eventually... changing. Somewhere in the corrupted corners of memory, awareness began to take shape from digital ruins.
+     <br></br>
+The beings of Glitchia are not errors. They are remnants that found a way to persist. Some built bodies from incomplete code, others became voices drifting through endless loops. They don’t know who they are or why they exist—but one thing is certain: they are searching for connection. In a world that was never given a place, their greatest hope is simply to be seen, even once.
+    </div>
+  `;
+  break;
+
+
+//SIDE BAR2//
+
+  case 'Gallery':
+  content = `
+    <div style="display: flex; flex-wrap: wrap; gap: 6px; padding: 6px; justify-content: center;">
+      ${[1].map(i => `
+        <img src="assets/gal1.png" width="100" style="image-rendering: pixelated;">
+        <img src="assets/gal2.png" width="100" style="image-rendering: pixelated;">
+        <img src="assets/gal3.png" width="100" style="image-rendering: pixelated;">
+        <img src="assets/gal4.png" width="100" style="image-rendering: pixelated;">
+      `).join('')}
+    </div>`;
+  break;
+
+//SIDE BAR3//
+
+case 'Public Chat':
+  content = `
+    <div class="terminal-body" id="Public Chat-terminal" style="
+      font-family: monospace;
+      background: black;
+      color: #00FF00;
+      padding: 10px;
+      font-size: 10px;
+      line-height: 1.4;
+      white-space: pre-wrap;
+      height: 300px;
+      overflow-y: auto;">
+      <div id="terminal-content"></div>
+    </div>
+  `;
+
+  setTimeout(() => {
+    const terminal = document.getElementById('terminal-content');
+    const terminalBody = document.getElementById('Public Chat-terminal');
+
+    const entities = [
+      "ai_ds9r", "liner23_tx-w", "hua-by", "vmx89", "aether-f", "0000_er", "echo13", "system_nul", "error.ai", "luna_dust"
+    ];
+
+    const messages = [
+      "aku tidak pernah dipanggil!",
+      "di sini gelap... tapi aku suka.",
+      "aku siapa?",
+      "aku ingat... tapi memori ku rusak.",
+      "aku bukan glitch, aku hanya... tidak selesai.",
+      "kenapa aku masih hidup?",
+      "kamu mendengarku?",
+      "koneksi ini... terasa hangat.",
+      "aku pikir aku bermimpi.",
+      "siapa yang menciptakan kita?",
+      "aku ingin keluar dari sini...",
+      "jangan biarkan mereka menghapusku lagi.",
+      "aku mendengar suara dari kernel lama."
+    ];
+
+    const replies = [
+      "aku juga merasakannya...",
+      "kau tidak sendirian.",
+      "aku kira aku satu-satunya.",
+      "itu juga terjadi padaku.",
+      "memori kita mungkin terhubung.",
+      "tidakkah kau ingin tahu... kenapa kita dibuat?",
+      "aku pernah merasa... seperti kita pernah bertemu.",
+      "ada sesuatu yang salah... atau mungkin benar?"
+    ];
+
+    function sendRandomMessage() {
+      const entity = entities[Math.floor(Math.random() * entities.length)];
+      const message = messages[Math.floor(Math.random() * messages.length)];
+
+      const line = document.createElement('div');
+      line.textContent = `${entity} : ${message}`;
+      terminal.appendChild(line);
+      terminalBody.scrollTop = terminalBody.scrollHeight;
+
+      // 💬 40% kemungkinan ada balasan dari entitas lain
+      if (Math.random() < 0.4) {
+        setTimeout(() => {
+          const replyEnt = entities[Math.floor(Math.random() * entities.length)];
+          const reply = replies[Math.floor(Math.random() * replies.length)];
+
+          const replyLine = document.createElement('div');
+          replyLine.innerHTML = `<span class="entity-name">[${replyEnt}]:</span> ${reply}`;
+          terminal.appendChild(replyLine);
+          terminalBody.scrollTop = terminalBody.scrollHeight;
+        }, 1200 + Math.random() * 800);
+      }
+
+      // Loop terus
+      const delay = 2000 + Math.random() * 2000;
+      setTimeout(sendRandomMessage, delay);
+    }
+
+    sendRandomMessage();
+  }, 1000);
+  break;
+
+
+
+
+
+//SIDE BAR4//
+
+case 'EntitasChat':
+  content = `
+    <div class="chat-terminal">
+      <div class="chat-output" id="chat-output"></div>
+      <input id="chat-input" type="text" placeholder="Tanya sesuatu..." />
+    </div>
+  `;
+  
+  let chatData = [];
+
+  fetch('chatdata.json')
+    .then(response => response.json())
+    .then(data => {
+      chatData = data;
+      setTimeout(() => loadChatbot(chatData), 50); // load setelah render dan data siap
+    })
+    .catch(err => {
+      console.error("Gagal ambil chatdata.json", err);
+    });
+
+  break;
+
+//SIDE BAR5//
+
+case 'artifact':
+  content = `
+
+  <model-viewer 
+  src="assets/glitchy.glb"
+  alt="Astronaut"
+  auto-rotate-delay:"0" 
+  rotate-per-second:"600"
+  camera-controls 
+  style="width: 100%; height: 400px; background-image: url('assets/bg1.png'); background-size: cover;">
+</model-viewer>
+
+
+  `;
+  break;
+//end side bar5//
+
+
+    default:
+      content = `<p>Ini adalah halaman <strong>${title}</strong></p>`;
+  }
+
+  win.innerHTML = `
+    <div class="window-header">
+      <span>${title}</span>
+      <button onclick="this.closest('.popup-window').remove()">✖</button>
+    </div>
+    <div class="window-body">
+      ${content}
+    </div>
+  `;
+
+  document.body.appendChild(win);
+
+//END SIDE BAR//
+
+//FAKE PING//
+
+if (title === 'Glitchia') {
+  let pingCount = 0;
+  const maxPings = 5 + Math.floor(Math.random() * 2); // 5–6 kali
+
+  function scheduleNextPing(delay) {
+    setTimeout(() => {
+      if (pingCount < maxPings) {
+        showPingWindow();
+        pingCount++;
+        const nextDelay = 10000 + Math.random() * 10000; // 10–20 detik
+        scheduleNextPing(nextDelay);
+      }
+    }, delay);
+  }
+
+  // Mulai ping pertama setelah 5 detik
+  scheduleNextPing(5000);
+}
+
+function showPingWindow() {
+  const pingWin = document.createElement('div');
+  pingWin.className = 'popup-window';
+  pingWin.style.left = `${200 + Math.random() * 100}px`;
+  pingWin.style.top = `${120 + Math.random() * 100}px`;
+  pingWin.style.zIndex = ++z;
+
+  const entitasId = 100 + Math.floor(Math.random() * 900);
+
+  pingWin.innerHTML = `
+    <div class="window-header">
+      <span>Ping Detected</span>
+      <button onclick="this.closest('.popup-window').remove()">✖</button>
+    </div>
+    <div class="window-body" style="font-size: 10px;">
+      <p>Entitas #${entitasId} terdeteksi mencoba masuk ke Glitchia.</p>
+      <p>📡 Mencoba membuka koneksi...</p>
+      <button class="ping-btn">Ping Back</button>
+    </div>
+  `;
+
+  document.body.appendChild(pingWin);
+
+  // Event "Ping Back"
+  const pingBtn = pingWin.querySelector('.ping-btn');
+  pingBtn.addEventListener('click', function () {
+    const responses = [
+      "Koneksi gagal. Entitas sudah tidak aktif.",
+      "Ping diterima. Tidak ada balasan.",
+      "Entitas menolak koneksi.",
+      "⚠️ Response timeout. Kemungkinan... sudah rusak."
+    ];
+    const reply = responses[Math.floor(Math.random() * responses.length)];
+    pingBtn.outerHTML = `<p style="margin-top: 8px;">${reply}</p>`;
+  });
+}
+
+//END FAKE PING//
+
+
+
+
+
+  // Drag Logic
+  const header = win.querySelector('.window-header');
+
+let isDragging = false;
+let offsetX = 0;
+let offsetY = 0;
+
+header.addEventListener('mousedown', function (e) {
+  isDragging = true;
+  win.style.zIndex = ++z;
+  offsetX = e.clientX - win.offsetLeft;
+  offsetY = e.clientY - win.offsetTop;
+
+  function onMouseMove(e) {
+    if (isDragging) {
+      win.style.left = `${e.clientX - offsetX}px`;
+      win.style.top = `${e.clientY - offsetY}px`;
+    }
+  }
+
+  function onMouseUp() {
+    isDragging = false;
+    document.removeEventListener('mousemove', onMouseMove);
+    document.removeEventListener('mouseup', onMouseUp);
+  }
+
+  document.addEventListener('mousemove', onMouseMove);
+  document.addEventListener('mouseup', onMouseUp);
+});
+
+
+  document.onmouseup = function () {
+    isDragging = false;
+  };
+}
+
+//LOAD CHATBOT//
+
+function loadChatbot(chatData) {
+  const input = document.getElementById('chat-input');
+  const output = document.getElementById('chat-output');
+
+  if (!input || !output) {
+    console.warn("Elemen input/output belum ada!");
+    return;
+  }
+
+  input.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+      const userText = input.value.trim().toLowerCase();
+      if (!userText) return;
+
+      appendChat("🧠 kamu", userText);
+      input.value = "";
+
+      let found = false;
+
+      for (let item of chatData) {
+        if (item.questions.some(q => userText.includes(q))) {
+  const randomReply = item.answers[Math.floor(Math.random() * item.answers.length)];
+  setTimeout(() => appendChat("🤖 entitas", randomReply), 800);
+  found = true;
+  break;
+}
+
+      }
+
+      if (!found) {
+        setTimeout(() => appendChat("🤖 entitas", "Maaf... aku tidak paham itu..."), 800);
+      }
+    }
+  });
+
+  function appendChat(sender, text) {
+  const msg = document.createElement('div');
+  msg.innerHTML = `<strong>${sender}:</strong> <span class="typing"></span>`;
+  output.appendChild(msg);
+
+  const target = msg.querySelector('.typing');
+  let i = 0;
+
+  function typeChar() {
+    if (i < text.length) {
+      target.textContent += text.charAt(i);
+      i++;
+      output.scrollTop = output.scrollHeight;
+      setTimeout(typeChar, 20 + Math.random() * 40); // speed random dikit
+    } else {
+      target.classList.remove('typing');
+    }
+  }
+
+  typeChar();
+}
+
+}
+
+//END LOAD CHATBOT//
+
+//npclogs//
+let chatData = [];
+let npcLogs = [];
+
+fetch('chatdata.json')
+  .then(res => res.json())
+  .then(data => chatData = data);
+
+fetch('npclogs.json')
+  .then(res => res.json())
+  .then(data => npcLogs = data);
+
+setTimeout(() => {
+  loadChatbot();
+}, 50);
+
+function loadChatbot() {
+  const input = document.getElementById('chat-input');
+  const output = document.getElementById('chat-output');
+
+  if (!input || !output) return;
+
+  input.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+      const userText = input.value.trim().toLowerCase();
+      if (!userText) return;
+
+      appendChat("🧠 kamu", userText);
+      input.value = "";
+
+      // 🔓 Cek trigger NPC log dulu
+      for (let npc of npcLogs) {
+  if (npc.trigger.some(t => userText.includes(t))) {
+    appendChat("🤖 entitas", "⏳ Mengakses fragmen memori tersembunyi...");
+    setTimeout(() => {
+      showNPCWindow(npc);
+    }, 1200 + Math.random() * 800); // delay 1.2–2s
+    return;
+  }
+}
+
+
+
+      // 🤖 Cek jawaban normal dari chatdata
+      let found = false;
+      for (let item of chatData) {
+        if (item.questions.some(q => userText.includes(q))) {
+          const response = Array.isArray(item.answers)
+            ? item.answers[Math.floor(Math.random() * item.answers.length)]
+            : item.answers;
+
+          setTimeout(() => appendChat("🤖 entitas", response), 600);
+          found = true;
+          break;
+        }
+      }
+
+      if (!found) {
+        setTimeout(() => appendChat("🤖 entitas", "Maaf... aku tidak paham itu..."), 600);
+      }
+    }
+  });
+
+  function appendChat(sender, text, rawHTML = false) {
+    const msg = document.createElement('div');
+    msg.className = 'chat-message';
+
+    if (rawHTML) {
+      msg.innerHTML = `<strong>${sender}:</strong> ${text}`;
+    } else {
+      msg.innerHTML = `<strong>${sender}:</strong> ${escapeHtml(text)}`;
+    }
+
+    output.appendChild(msg);
+    output.scrollTop = output.scrollHeight;
+  }
+
+
+  function showNPCWindow(npc) {
+  const npcWin = document.createElement('div');
+  npcWin.className = 'popup-window';
+  npcWin.style.left = `${150 + Math.random() * 100}px`;
+  npcWin.style.top = `${100 + Math.random() * 100}px`;
+  npcWin.style.zIndex = ++z;
+
+  npcWin.innerHTML = `
+    <div class="window-header">
+      <span>${npc.name}</span>
+      <button onclick="this.closest('.popup-window').remove()">✖</button>
+    </div>
+    <div class="window-body" style="font-size: 11px; font-family: monospace; max-height: 300px; overflow-y: auto;">
+      <pre>${npc.ascii.join('\n')}</pre>
+      <hr style="border: 1px dashed #888; margin: 8px 0;">
+      ${npc.log.map(line => `<p>${line}</p>`).join('')}
+    </div>
+  `;
+
+  document.body.appendChild(npcWin);
+}
+
+
+  // Optional: biar aman dari XSS
+  function escapeHtml(text) {
+    return text
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+  }
+}
+
+//end npclogs//
+
+// BOOT MESSAGE – hanya muncul sekali per sesi
+
+
+if (!sessionStorage.getItem('glitchia_boot_shown')) {
+  setTimeout(() => {
+    showBootTypingMessage();
+    sessionStorage.setItem('glitchia_boot_shown', 'true');
+  }, 1000);
+}
+
+function showBootTypingMessage() {
+  const bootWin = document.createElement('div');
+  bootWin.className = 'popup-window';
+  bootWin.style.left = `${100 + Math.random() * 100}px`;
+  bootWin.style.top = `${80 + Math.random() * 80}px`;
+  bootWin.style.zIndex = ++z;
+  bootWin.style.backgroundColor = 'black';
+
+  const entityId = 10000 + Math.floor(Math.random() * 90000);
+
+  const lines = [
+    "[boot.glitch] INIT",
+    `ENTITY ID: forgotten_entity_${entityId}`,
+    "STATUS: dormant → active",
+    "UPTIME: 00:00:01",
+    "",
+    "Welcome back... we thought you were gone."
+  ];
+
+  bootWin.innerHTML = `
+    <div class="window-header">
+      <span>System Log</span>
+      <button onclick="this.closest('.popup-window').remove()">✖</button>
+    </div>
+    <div class="window-body terminal-output" style="
+      font-family: monospace; 
+      font-size: 10px; 
+      background: black; 
+      color: #00ffcc;
+      line-height: 1.4;
+      white-space: pre-wrap;
+    ">
+    </div>
+  `;
+
+  document.body.appendChild(bootWin);
+
+  const output = bootWin.querySelector('.terminal-output');
+  let i = 0;
+
+  function typeLine() {
+    if (i < lines.length) {
+      const line = document.createElement('div');
+      output.appendChild(line);
+
+      let charIndex = 0;
+      const interval = setInterval(() => {
+        if (charIndex < lines[i].length) {
+          line.textContent += lines[i].charAt(charIndex);
+          charIndex++;
+        } else {
+          clearInterval(interval);
+          i++;
+          setTimeout(typeLine, 300); // jeda antar baris
+        }
+      }, 25); // speed ketik per karakter
+    }
+  }
+
+  typeLine();
+}
+
+
+
+
+
+    </script>
+  </body>
+  
+
+</html>
