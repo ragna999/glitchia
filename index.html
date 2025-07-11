@@ -239,7 +239,9 @@ case 'artifact':
 
   <model-viewer 
   src="assets/glitchy.glb"
-  alt="Astronaut"
+  alt="artifact"
+  auto-rotate
+  environment-image:"neutral"
   auto-rotate-delay:"0" 
   rotate-per-second:"600"
   camera-controls 
@@ -297,6 +299,8 @@ function showPingWindow() {
   pingWin.style.left = `${200 + Math.random() * 100}px`;
   pingWin.style.top = `${120 + Math.random() * 100}px`;
   pingWin.style.zIndex = ++z;
+  document.body.appendChild(pingWin);
+  makeWindowDraggable(pingWin);
 
   const entitasId = 100 + Math.floor(Math.random() * 900);
 
@@ -332,39 +336,54 @@ function showPingWindow() {
 
 
 
+//drag logic
 
+function makeWindowDraggable(el) {
+  let offsetX, offsetY, isDragging = false;
 
-  // Drag Logic
-  const header = win.querySelector('.window-header');
+  const header = el.querySelector('.window-header');
+  if (!header) return;
 
-let isDragging = false;
-let offsetX = 0;
-let offsetY = 0;
+  // Desktop support
+  header.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    offsetX = e.clientX - el.offsetLeft;
+    offsetY = e.clientY - el.offsetTop;
+    document.addEventListener('mousemove', onMouseMove);
+    document.addEventListener('mouseup', stopDrag);
+  });
 
-header.addEventListener('mousedown', function (e) {
-  isDragging = true;
-  win.style.zIndex = ++z;
-  offsetX = e.clientX - win.offsetLeft;
-  offsetY = e.clientY - win.offsetTop;
+  // Mobile support
+  header.addEventListener('touchstart', (e) => {
+    isDragging = true;
+    const touch = e.touches[0];
+    offsetX = touch.clientX - el.offsetLeft;
+    offsetY = touch.clientY - el.offsetTop;
+    document.addEventListener('touchmove', onTouchMove);
+    document.addEventListener('touchend', stopDrag);
+  });
 
   function onMouseMove(e) {
-    if (isDragging) {
-      win.style.left = `${e.clientX - offsetX}px`;
-      win.style.top = `${e.clientY - offsetY}px`;
-    }
+    if (!isDragging) return;
+    el.style.left = `${e.clientX - offsetX}px`;
+    el.style.top = `${e.clientY - offsetY}px`;
   }
 
-  function onMouseUp() {
+  function onTouchMove(e) {
+    if (!isDragging) return;
+    const touch = e.touches[0];
+    el.style.left = `${touch.clientX - offsetX}px`;
+    el.style.top = `${touch.clientY - offsetY}px`;
+  }
+
+  function stopDrag() {
     isDragging = false;
     document.removeEventListener('mousemove', onMouseMove);
-    document.removeEventListener('mouseup', onMouseUp);
+    document.removeEventListener('mouseup', stopDrag);
+    document.removeEventListener('touchmove', onTouchMove);
+    document.removeEventListener('touchend', stopDrag);
   }
-
-  document.addEventListener('mousemove', onMouseMove);
-  document.addEventListener('mouseup', onMouseUp);
-});
-
-
+}
   document.onmouseup = function () {
     isDragging = false;
   };

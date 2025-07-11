@@ -21,4 +21,37 @@
           terminal.scrollTop = terminal.scrollHeight;
          
         }, 1200 + Math.random() * 1000);
-      }
+      }\
+
+
+      Langkah Push Perubahan Lokal ke GitHub
+      
+Buka terminal di folder project kamu
+
+cd path/to/projek-elo
+
+
+Cek status perubahan
+
+=====
+git status
+⬅️ Ini bakal nampilin file apa aja yang berubah.
+
+
+Tambahin semua perubahan ke staging
+
+==========
+git add .
+(titik berarti semua perubahan)
+
+Commit perubahan
+
+=========
+git commit -m "Update fitur X / perbaikan Y"
+
+
+Push ke GitHub
+
+==========
+git push origin main
+(Pastikan lo lagi di branch main. Cek pakai git branch)
