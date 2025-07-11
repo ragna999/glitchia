@@ -42,9 +42,7 @@
         <div class="main-title-wrapper">
             <div class="main-title">Glitchia</div>
           </div>
-          
-
-
+        
           <!--TASK BAR/FOOTER-->
 
     <div class="taskbar">
@@ -69,21 +67,20 @@
     
   //MENU SIDEBAR//
 
-      function createWindow(title, event) {
-
+  function createWindow(title, event) {
   const iconRect = event.currentTarget.getBoundingClientRect();
   const win = document.createElement('div');
   win.className = 'popup-window spawn-animation';
   win.style.left = `${iconRect.left}px`;
   win.style.top = `${iconRect.top}px`;
   win.style.zIndex = ++z;
-  if (title ==='Glitchia') {
-  win.classList.add('popup-lore');
-}
+
+  if (title === 'Glitchia') win.classList.add('popup-lore');
 
   let content = '';
 
   switch (title) {
+
 
     //SIDE BAR1//
 
@@ -269,6 +266,7 @@ case 'artifact':
   `;
 
   document.body.appendChild(win);
+  makeWindowDraggable(win); // 🧲 Fix agar window bisa digeser
 
 //END SIDE BAR//
 
